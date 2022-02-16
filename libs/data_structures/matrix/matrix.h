@@ -1,6 +1,8 @@
 #ifndef BASICSOFPROGRAMMINGCOURSE_MATRIX_H
 #define BASICSOFPROGRAMMINGCOURSE_MATRIX_H
 
+#include <stdbool.h>
+
 typedef struct matrix {
     int **values; // элементы матрицы
     int nRows; // количество рядов
@@ -66,7 +68,11 @@ matrix *createArrayOfMatrixFromArray(const int *values,
 
 void swapRowsWithMinAndMaxElementsOfSquareMatrix(matrix *m);
 
-int getMax(const int *a, int n);
+int getMax(int *a, int n);
+
+void sortRowsByMaxElement(matrix *m);
+
+void revertRowsOfMatrix(matrix *m);
 
 
 #endif //BASICSOFPROGRAMMINGCOURSE_MATRIX_H

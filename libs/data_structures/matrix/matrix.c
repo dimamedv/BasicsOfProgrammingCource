@@ -49,9 +49,11 @@ void inputMatrices(matrix *ms, int nMatrices) {
 }
 
 void outputMatrix(matrix m) {
-    for (int row = 0; row < m.nRows; row++)
+    for (int row = 0; row < m.nRows; row++) {
         for (int column = 0; column < m.nCols; column++)
-            printf("%d", m.values[row][column]);
+            printf("%d ", m.values[row][column]);
+        printf("\n");
+    }
 }
 
 void outputMatrices(matrix *ms, int nMatrices) {
@@ -237,11 +239,22 @@ void swapRowsWithMinAndMaxElementsOfSquareMatrix(matrix *m) {
     swapRows(m, minPos.rowIndex, maxPos.rowIndex);
 }
 
-int getMax(const int *a, int n) {
+int getMax(int *a, int n) {
     int max = a[0];
     for (int i = 1; i < n; i++) {
         if (a[i] > max)
             max = a[i];
     }
     return max;
+}
+
+void revertRowsOfMatrix(matrix *m) {
+    for (int rowIndex = 0; rowIndex < m->nRows / 2; rowIndex++) {
+        swapRows(m, rowIndex, m->nRows - rowIndex - 1);
+    }
+}
+
+void sortRowsByMaxElement(matrix *m) {
+    insertionSortRowsMatrixByRowCriteria(m, &getMax);
+    revertRowsOfMatrix(m);
 }
