@@ -230,3 +230,9 @@ matrix *createArrayOfMatrixFromArray(const int *values,
             for (int j = 0; j < nCols; j++) ms[k].values[i][j] = values[l++];
     return ms;
 }
+
+void swapRowsWithMinAndMaxElementsOfSquareMatrix(matrix *m) {
+    position minPos = getMinValuePos(m);
+    position maxPos = getMaxValuePos(m);
+    swapRows(m, minPos.rowIndex, maxPos.rowIndex);
+}
