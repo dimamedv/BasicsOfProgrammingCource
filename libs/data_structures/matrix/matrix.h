@@ -68,7 +68,7 @@ matrix *createArrayOfMatrixFromArray(const int *values,
 
 void swapRowsWithMinAndMaxElementsOfSquareMatrix(matrix *m);
 
-int getMax(int *a, int n);
+int getMax(const int *a, int n);
 
 void sortRowsByMaxElement(matrix *m);
 

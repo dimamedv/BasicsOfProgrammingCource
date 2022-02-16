@@ -239,7 +239,7 @@ void swapRowsWithMinAndMaxElementsOfSquareMatrix(matrix *m) {
     swapRows(m, minPos.rowIndex, maxPos.rowIndex);
 }
 
-int getMax(int *a, int n) {
+int getMax(const int *a, int n) {
     int max = a[0];
     for (int i = 1; i < n; i++) {
         if (a[i] > max)
@@ -257,4 +257,13 @@ void revertRowsOfMatrix(matrix *m) {
 void sortRowsByMaxElement(matrix *m) {
     insertionSortRowsMatrixByRowCriteria(m, &getMax);
     revertRowsOfMatrix(m);
+}
+
+int getMin(const int *a, int n) {
+    int min = a[0];
+    for (int i = 1; i < n; i++) {
+        if (a[i] < min)
+            min = a[i];
+    }
+    return min;
 }
