@@ -66,5 +66,7 @@ matrix *createArrayOfMatrixFromArray(const int *values,
 
 void swapRowsWithMinAndMaxElementsOfSquareMatrix(matrix *m);
 
+int getMax(const int *a, int n);
+
 
 #endif //BASICSOFPROGRAMMINGCOURSE_MATRIX_H
