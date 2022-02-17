@@ -68,11 +68,15 @@ matrix *createArrayOfMatrixFromArray(const int *values,
 
 void swapRowsWithMinAndMaxElementsOfSquareMatrix(matrix *m);
 
-int getMax(const int *a, int n);
+int getMax(int *a, int n);
 
 void sortRowsByMaxElement(matrix *m);
 
 void revertRowsOfMatrix(matrix *m);
+
+int getMin(int *a, int n);
+
+void sortColsByMinElement(matrix *m);
 
 
 #endif //BASICSOFPROGRAMMINGCOURSE_MATRIX_H
