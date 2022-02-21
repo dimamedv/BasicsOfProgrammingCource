@@ -295,3 +295,19 @@ matrix mulMatrices(matrix *m1, matrix *m2) {
     }
     return result;
 }
+
+void getCopyOfMatrix(matrix *destination, matrix *source) {
+    for (int row = 0; row < source->nRows; row++) {
+        for (int column = 0; column < source->nCols; column++) {
+            destination->values[row][column] = source->values[row][column];
+        }
+    }
+}
+
+void getSquareOfMatrixIfSymmetric(matrix *m) {
+    matrix mCopy = getMemMatrix(m->nRows, m->nCols);
+    getCopyOfMatrix(&mCopy, m);
+    if (isSymmetricMatrix(m))
+        *m = mulMatrices(&mCopy, &mCopy);
+    freeMemMatrix(mCopy);
+}

@@ -127,6 +127,22 @@ void test_sortColsByMinElement_sameMins() {
     assert(areTwoMatricesEqual(&m, &mResult));
 }
 
+void test_getSquareOfMatrixIfSymmetric() {
+    matrix m = createMatrixFromArray(
+            (int[]) {1, 2, 3,
+                     2, 5, 6,
+                     3, 6, 9},
+            3, 3);
+    matrix mResult = createMatrixFromArray(
+            (int[]) {14, 30, 42,
+                     30, 65, 90,
+                     42, 90, 126},
+            3, 3);
+    getSquareOfMatrixIfSymmetric(&m);
+    outputMatrix(m);
+    assert(areTwoMatricesEqual(&m, &mResult));
+}
+
 void test() {
     test_swapRowsWithMinAndMaxElementsOfSquareMatrix_differentRows();
     test_swapRowsWithMinAndMaxElementsOfSquareMatrix_sameRow();
@@ -136,6 +152,7 @@ void test() {
     test_sortColsByMinElement_differentMins1();
     test_sortColsByMinElement_differentMins2();
     test_sortColsByMinElement_sameMins();
+    test_getSquareOfMatrixIfSymmetric();
 }
 
 int main() {

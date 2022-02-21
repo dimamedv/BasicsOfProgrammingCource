@@ -78,5 +78,9 @@ int getMin(int *a, int n);
 
 void sortColsByMinElement(matrix *m);
 
+matrix mulMatrices(matrix *m1, matrix *m2);
+
+void getSquareOfMatrixIfSymmetric(matrix *m);
+
 
 #endif //BASICSOFPROGRAMMINGCOURSE_MATRIX_H
