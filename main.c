@@ -187,6 +187,36 @@ void test_transposeIfMatrixHasNotEqualSumOfRows2() {
     assert(areTwoMatricesEqual(&m, &mResult));
 }
 
+void test_isMutuallyInverseMatrices1() {
+    matrix m1 = createMatrixFromArray(
+            (int[]) {2, 5, 7,
+                     6, 3, 4,
+                     5, -2, -3},
+            3, 3);
+    matrix m2 = createMatrixFromArray(
+            (int[]) {1, -1, 1,
+                     38, -41, 34,
+                     -27, 29, -24},
+            3, 3);
+    assert(!isMutuallyInverseMatrices(m1, m2));
+}
+
+
+void test_isMutuallyInverseMatrices2() {
+    matrix m1 = createMatrixFromArray(
+            (int[]) {2, 5, 7,
+                     6, 3, 4,
+                     5, -2, -3},
+            3, 3);
+    matrix m2 = createMatrixFromArray(
+            (int[]) {1, -1, 1,
+                     -38, 41, -34,
+                     27, -29, 24},
+            3, 3);
+    assert(isMutuallyInverseMatrices(m1, m2));
+}
+
+
 void test() {
     test_swapRowsWithMinAndMaxElementsOfSquareMatrix_differentRows();
     test_swapRowsWithMinAndMaxElementsOfSquareMatrix_sameRow();
@@ -200,6 +230,8 @@ void test() {
     test_getSquareOfMatrixIfSymmetric2();
     test_transposeIfMatrixHasNotEqualSumOfRows1();
     test_transposeIfMatrixHasNotEqualSumOfRows2();
+    test_isMutuallyInverseMatrices1();
+    test_isMutuallyInverseMatrices2();
 }
 
 int main() {
