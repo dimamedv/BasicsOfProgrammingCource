@@ -312,9 +312,20 @@ void getSquareOfMatrixIfSymmetric(matrix *m) {
     freeMemMatrix(mCopy);
 }
 
-long long getSum(long long *a, int n) {
+long long getSum(int *a, int n) {
     long long sum = 0;
     for (int i = 0; i < n; i++)
         sum += a[i];
     return sum;
 }
+
+bool isUnique(long long *a, int n) {
+    for (int i = 0; i < n - 1; i++) {
+        long long cur = a[i];
+        for (int j = i + 1; j < n; j++)
+            if (cur == a[j])
+                return false;
+    }
+    return true;
+}
+
