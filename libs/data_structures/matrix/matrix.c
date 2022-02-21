@@ -329,3 +329,11 @@ bool isUnique(long long *a, int n) {
     return true;
 }
 
+void transposeIfMatrixHasNotEqualSumOfRows(matrix m) {
+    long long a[m.nRows];
+    for (int i = 0; i < m.nRows; i++) {
+        a[i] = getSum(m.values[i], m.nRows);
+    }
+    if (isUnique(a, m.nRows))
+        transposeSquareMatrix(&m);
+}

@@ -127,7 +127,7 @@ void test_sortColsByMinElement_sameMins() {
     assert(areTwoMatricesEqual(&m, &mResult));
 }
 
-void test_getSquareOfMatrixIfSymmetric() {
+void test_getSquareOfMatrixIfSymmetric1() {
     matrix m = createMatrixFromArray(
             (int[]) {1, 2, 3,
                      2, 5, 6,
@@ -139,7 +139,51 @@ void test_getSquareOfMatrixIfSymmetric() {
                      42, 90, 126},
             3, 3);
     getSquareOfMatrixIfSymmetric(&m);
-    outputMatrix(m);
+    assert(areTwoMatricesEqual(&m, &mResult));
+}
+
+void test_getSquareOfMatrixIfSymmetric2() {
+    matrix m = createMatrixFromArray(
+            (int[]) {1, 2, 5,
+                     2, 5, 6,
+                     3, 6, 9},
+            3, 3);
+    matrix mResult = createMatrixFromArray(
+            (int[]) {1, 2, 5,
+                     2, 5, 6,
+                     3, 6, 9},
+            3, 3);
+    getSquareOfMatrixIfSymmetric(&m);
+    assert(areTwoMatricesEqual(&m, &mResult));
+}
+
+void test_transposeIfMatrixHasNotEqualSumOfRows1() {
+    matrix m = createMatrixFromArray(
+            (int[]) {1, 2, 3,
+                     4, 5, 6,
+                     7, 8, 9},
+            3, 3);
+    matrix mResult = createMatrixFromArray(
+            (int[]) {1, 4, 7,
+                     2, 5, 8,
+                     3, 6, 9},
+            3, 3);
+    transposeIfMatrixHasNotEqualSumOfRows(m);
+    assert(areTwoMatricesEqual(&m, &mResult));
+}
+
+void test_transposeIfMatrixHasNotEqualSumOfRows2() {
+    matrix m = createMatrixFromArray(
+            (int[]) {1, 2, 3,
+                     4, 1, 1,
+                     7, 8, 9},
+            3, 3);
+    matrix mResult = createMatrixFromArray(
+            (int[]) {1, 2, 3,
+                     4, 1, 1,
+                     7, 8, 9},
+            3, 3);
+    transposeIfMatrixHasNotEqualSumOfRows(m);
     assert(areTwoMatricesEqual(&m, &mResult));
 }
 
@@ -152,7 +196,10 @@ void test() {
     test_sortColsByMinElement_differentMins1();
     test_sortColsByMinElement_differentMins2();
     test_sortColsByMinElement_sameMins();
-    test_getSquareOfMatrixIfSymmetric();
+    test_getSquareOfMatrixIfSymmetric1();
+    test_getSquareOfMatrixIfSymmetric2();
+    test_transposeIfMatrixHasNotEqualSumOfRows1();
+    test_transposeIfMatrixHasNotEqualSumOfRows2();
 }
 
 int main() {

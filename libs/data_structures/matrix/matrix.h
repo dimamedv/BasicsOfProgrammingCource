@@ -82,5 +82,7 @@ matrix mulMatrices(matrix *m1, matrix *m2);
 
 void getSquareOfMatrixIfSymmetric(matrix *m);
 
+void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
+
 
 #endif //BASICSOFPROGRAMMINGCOURSE_MATRIX_H
