@@ -311,3 +311,10 @@ void getSquareOfMatrixIfSymmetric(matrix *m) {
         *m = mulMatrices(&mCopy, &mCopy);
     freeMemMatrix(mCopy);
 }
+
+long long getSum(long long *a, int n) {
+    long long sum = 0;
+    for (int i = 0; i < n; i++)
+        sum += a[i];
+    return sum;
+}
