@@ -278,3 +278,20 @@ void sortColsByMinElement(matrix *m) {
     insertionSortColsMatrixByColCriteria(m, &getMin);
     revertColumnsOfMatrix(m);
 }
+
+matrix mulMatrices(matrix *m1, matrix *m2) {
+    assert(m1->nCols == m2->nRows);
+    int resultRows = m1->nRows;
+    int resultColumns = m2->nCols;
+    matrix result = getMemMatrix(resultRows, resultColumns);
+    for (int i = 0; i < resultRows; i++) {
+        for (int j = 0; j < resultColumns; j++) {
+            int sum = 0;
+            for (int k = 0; k < m1->nCols; k++) {
+                sum += m1->values[i][k] * m2->values[k][j];
+            }
+            result.values[i][j] = sum;
+        }
+    }
+    return result;
+}
