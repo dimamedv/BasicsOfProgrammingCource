@@ -347,3 +347,29 @@ int max(int a, int b) {
     return a > b ? a : b;
 }
 
+long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
+    int sumOfMaxes = 0;
+    for (int i = 0; i < m.nRows; i++) {
+        int rowIndex = i;
+        int columnIndex = 0;
+        int maxValue = m.values[rowIndex][columnIndex];
+        while (rowIndex < m.nRows && columnIndex < m.nCols) {
+            maxValue = max(maxValue, m.values[rowIndex][columnIndex]);
+            rowIndex++;
+            columnIndex++;
+        }
+        sumOfMaxes += maxValue;
+    }
+    for (int i = 1; i < m.nCols; i++) {
+        int rowIndex = 0;
+        int columnIndex = i;
+        int maxValue = m.values[rowIndex][columnIndex];
+        while (rowIndex < m.nRows && columnIndex < m.nCols) {
+            maxValue = max(maxValue, m.values[rowIndex][columnIndex]);
+            rowIndex++;
+            columnIndex++;
+        }
+        sumOfMaxes += maxValue;
+    }
+    return sumOfMaxes;
+}

@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <printf.h>
 #include "libs/data_structures/matrix/matrix.h"
 
 void test_swapRowsWithMinAndMaxElementsOfSquareMatrix_differentRows() {
@@ -216,6 +217,25 @@ void test_isMutuallyInverseMatrices2() {
     assert(isMutuallyInverseMatrices(m1, m2));
 }
 
+void test_findSumOfMaxesOfPseudoDiagonal1() {
+    matrix m = createMatrixFromArray(
+            (int[]) {1, 2, 3,
+                     4, 5, 6,
+                     7, 8, 9,
+                     10, 11, 12},
+            4, 3);
+    assert(findSumOfMaxesOfPseudoDiagonal(m) == 51);
+}
+
+void test_findSumOfMaxesOfPseudoDiagonal2() {
+    matrix m = createMatrixFromArray(
+            (int[]) {1, 2, 3, 4,
+                     5, 6, 7, 8,
+                     9, 10, 11, 12},
+            3, 4);
+    assert(findSumOfMaxesOfPseudoDiagonal(m) == 54);
+}
+
 
 void test() {
     test_swapRowsWithMinAndMaxElementsOfSquareMatrix_differentRows();
@@ -232,6 +252,7 @@ void test() {
     test_transposeIfMatrixHasNotEqualSumOfRows2();
     test_isMutuallyInverseMatrices1();
     test_isMutuallyInverseMatrices2();
+    test_findSumOfMaxesOfPseudoDiagonal1();
 }
 
 int main() {
