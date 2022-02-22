@@ -254,6 +254,36 @@ void test_getMinInArea2() {
     assert(getMinInArea(m) == 1);
 }
 
+void test_sortByDistances1() {
+    matrix m = createMatrixFromArray(
+            (int[]) {7, 8, 9,
+                     1, 2, 3,
+                     4, 5, 6},
+            3, 3);
+    matrix mResult = createMatrixFromArray(
+            (int[]) {1, 2, 3,
+                     4, 5, 6,
+                     7, 8, 9},
+            3, 3);
+    sortByDistances(m);
+    assert(areTwoMatricesEqual(&m, &mResult));
+}
+
+void test_sortByDistances2() {
+    matrix m = createMatrixFromArray(
+            (int[]) {1, 2, 3, 100,
+                     4, 5, 6, 10,
+                     7, 8, 9, 1},
+            3, 4);
+    matrix mResult = createMatrixFromArray(
+            (int[]) {4, 5, 6, 10,
+                     7, 8, 9, 1,
+                     1, 2, 3, 100},
+            3, 4);
+    sortByDistances(m);
+    assert(areTwoMatricesEqual(&m, &mResult));
+}
+
 void test() {
     test_swapRowsWithMinAndMaxElementsOfSquareMatrix_differentRows();
     test_swapRowsWithMinAndMaxElementsOfSquareMatrix_sameRow();
@@ -273,6 +303,8 @@ void test() {
     test_findSumOfMaxesOfPseudoDiagonal2();
     test_getMinInArea1();
     test_getMinInArea2();
+    test_sortByDistances1();
+    test_sortByDistances2();
 }
 
 int main() {

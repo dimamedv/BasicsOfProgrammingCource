@@ -402,7 +402,7 @@ int getMinInArea(matrix m) {
     return m.values[minPos.rowIndex][minPos.colIndex];
 }
 
-float getDistance(const int *a, int n) {
+float getDistance(int *a, int n) {
     int sumOfRoots = 0;
     for (int i = 0; i < n; i++) {
         sumOfRoots += a[i] * a[i];
@@ -430,3 +430,7 @@ void insertionSortRowsMatrixByRowCriteriaF(matrix *m,
     }
 }
 
+void sortByDistances(matrix m) {
+    insertionSortRowsMatrixByRowCriteriaF(&m, &getDistance);
+    revertRowsOfMatrix(&m);
+}

@@ -92,5 +92,7 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m);
 
 int getMinInArea(matrix m);
 
+void sortByDistances(matrix m);
+
 
 #endif //BASICSOFPROGRAMMINGCOURSE_MATRIX_H
