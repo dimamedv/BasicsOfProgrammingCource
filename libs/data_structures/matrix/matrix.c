@@ -410,3 +410,23 @@ float getDistance(const int *a, int n) {
     return sqrt(sumOfRoots);
 }
 
+void insertionSortRowsMatrixByRowCriteriaF(matrix *m,
+                                           float (*criteria)(int *, int)) {
+    float subArray[m->nRows];
+    for (int rowIndex = 0; rowIndex < m->nRows; rowIndex++)
+        subArray[rowIndex] = criteria(m->values[rowIndex], m->nCols);
+    for (int rowIndex = 1; rowIndex < m->nRows; rowIndex++) {
+        float currentCriteriaValue = subArray[rowIndex];
+        int *currentRow = m->values[rowIndex];
+        int currentPosition = rowIndex;
+        while (currentPosition > 0 &&
+               currentCriteriaValue > subArray[currentPosition - 1]) {
+            subArray[currentPosition] = subArray[currentPosition - 1];
+            m->values[currentPosition] = m->values[currentPosition - 1];
+            currentPosition--;
+        }
+        subArray[currentPosition] = currentCriteriaValue;
+        m->values[currentPosition] = currentRow;
+    }
+}
+
