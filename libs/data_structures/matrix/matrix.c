@@ -342,3 +342,8 @@ bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
     matrix mResult = mulMatrices(&m1, &m2);
     return isEMatrix(&mResult);
 }
+
+int max(int a, int b) {
+    return a > b ? a : b;
+}
+
