@@ -6,6 +6,7 @@
 #include "matrix.h"
 #include "../../algorithms/array/array.h"
 #include "../../algorithms/algorithms.h"
+#include "math.h"
 
 
 typedef struct assert assert;
@@ -400,3 +401,12 @@ int getMinInArea(matrix m) {
     }
     return m.values[minPos.rowIndex][minPos.colIndex];
 }
+
+float getDistance(const int *a, int n) {
+    int sumOfRoots = 0;
+    for (int i = 0; i < n; i++) {
+        sumOfRoots += a[i] * a[i];
+    }
+    return sqrt(sumOfRoots);
+}
+
