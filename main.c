@@ -236,6 +236,23 @@ void test_findSumOfMaxesOfPseudoDiagonal2() {
     assert(findSumOfMaxesOfPseudoDiagonal(m) == 54);
 }
 
+void test_getMinInArea1() {
+    matrix m = createMatrixFromArray(
+            (int[]) {1, 2,  3,   4,
+                     5, 6, 100,  8,
+                     9, 10, 11, 12},
+            3, 4);
+    assert(getMinInArea(m) == 2);
+}
+
+void test_getMinInArea2() {
+    matrix m = createMatrixFromArray(
+            (int[]) {10, 2,  3,  1,
+                     5,  6,  5,  8,
+                     9, 100, 11, 12},
+            3, 4);
+    assert(getMinInArea(m) == 1);
+}
 
 void test() {
     test_swapRowsWithMinAndMaxElementsOfSquareMatrix_differentRows();
@@ -253,6 +270,9 @@ void test() {
     test_isMutuallyInverseMatrices1();
     test_isMutuallyInverseMatrices2();
     test_findSumOfMaxesOfPseudoDiagonal1();
+    test_findSumOfMaxesOfPseudoDiagonal2();
+    test_getMinInArea1();
+    test_getMinInArea2();
 }
 
 int main() {
