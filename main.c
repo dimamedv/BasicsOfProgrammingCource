@@ -395,6 +395,31 @@ void test_countNonDescendingRowsMatrices() {
     assert(countNonDescendingRowsMatrices(ms, 3) == 2);
 }
 
+void test_printMatrixWithMaxZeroRows() {
+    matrix ms[4];
+    ms[0] = createMatrixFromArray(
+            (int[]) {1, 2, 3,
+                     4, 5, 6,
+                     7, 8, 9},
+            3, 3);
+    ms[1] = createMatrixFromArray(
+            (int[]) {1, 2, 3,
+                     0, 0, 0,
+                     7, 8, 9},
+            3, 3);
+    ms[2] = createMatrixFromArray(
+            (int[]) {1, 2, 3,
+                     0, 0, 0,
+                     0, 0, 0},
+            3, 3);
+    ms[3] = createMatrixFromArray(
+            (int[]) {0, 0, 0,
+                     1, 2, 3,
+                     0, 0, 0},
+            3, 3);
+    printMatrixWithMaxZeroRows(ms, 4);
+}
+
 void test() {
     test_swapRowsWithMinAndMaxElementsOfSquareMatrix_differentRows();
     test_swapRowsWithMinAndMaxElementsOfSquareMatrix_sameRow();
@@ -422,6 +447,8 @@ void test() {
     test_swapPenultimateRow1();
     test_swapPenultimateRow2();
     test_countNonDescendingRowsMatrices();
+    //test_printMatrixWithMaxZeroRows();
+
 }
 
 int main() {
