@@ -100,4 +100,10 @@ int getNSpecialElement(matrix m);
 
 void swapPenultimateRow(matrix m);
 
+bool isNonDescendingSorted(int *a, int n);
+
+bool hasAllNonDescendingRows(matrix m);
+
+int countNonDescendingRowsMatrices(matrix *ms, int nMatrix);
+
 #endif //BASICSOFPROGRAMMINGCOURSE_MATRIX_H

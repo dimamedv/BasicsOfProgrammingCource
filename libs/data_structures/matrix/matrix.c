@@ -9,8 +9,6 @@
 #include "math.h"
 
 
-typedef struct assert assert;
-
 matrix getMemMatrix(int nRows, int nCols) {
     int **values = (int **) malloc(sizeof(int *) * nRows);
     for (int i = 0; i < nRows; i++)
@@ -485,4 +483,25 @@ void swapPenultimateRow(matrix m) {
     int column[m.nRows];
     getColumnOfMatrix(column, &m, minPos.colIndex);
     setRow(m, column, m.nRows - 2);
+}
+
+bool isNonDescendingSorted(int *a, int n) {
+    for (int i = 1; i < n; i++)
+        if (a[i] < a[i - 1])
+            return false;
+    return true;
+}
+
+bool hasAllNonDescendingRows(matrix m) {
+    for (int rowIndex = 0; rowIndex < m.nRows; rowIndex++)
+        if (!isNonDescendingSorted(m.values[rowIndex], m.nCols))
+            return false;
+    return true;
+}
+
+int countNonDescendingRowsMatrices(matrix *ms, int nMatrix) {
+    int count = 0;
+    for (int i = 0; i < nMatrix; i++)
+        count += hasAllNonDescendingRows(ms[i]);
+    return count;
 }
