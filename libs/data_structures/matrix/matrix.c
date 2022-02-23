@@ -35,6 +35,11 @@ void freeMemMatrices(matrix *ms, int nMatrices) {
     free(ms);
 }
 
+void freeArrayMatrices(matrix *ms, int nMatrices) {
+    for (int i = 0; i < nMatrices; i++)
+        freeMemMatrix(ms[i]);
+}
+
 void inputMatrix(matrix *m) {
     for (int row = 0; row < m->nRows; row++)
         for (int column = 0; column < m->nCols; column++)
@@ -530,4 +535,29 @@ void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix) {
             outputMatrix(ms[i]);
             printf("\n");
         }
+}
+
+int getMaxMatrixNorm(matrix m) {
+    int maxMatrixNorm = abs(m.values[0][0]);
+
+    for (int i = 0; i < m.nRows; ++i)
+        for (int j = 0; j < m.nCols; ++j)
+            if (abs(m.values[i][j]) > maxMatrixNorm)
+                maxMatrixNorm = abs(m.values[i][j]);
+
+    return maxMatrixNorm;
+}
+
+void printMinNormMatrix(matrix *ms, int nMatrix) {
+    int matrixNorms[nMatrix];
+    matrixNorms[0] = getMaxMatrixNorm(ms[0]);
+    int minMatrixNorm = matrixNorms[0];
+    for (int i = 1; i < nMatrix; ++i) {
+        matrixNorms[i] = getMaxMatrixNorm(ms[i]);
+        if (matrixNorms[i] < minMatrixNorm)
+            minMatrixNorm = matrixNorms[i];
+    }
+    for (int i = 0; i < nMatrix; ++i)
+        if (matrixNorms[i] == minMatrixNorm)
+            outputMatrix(ms[i]);
 }

@@ -274,6 +274,7 @@ void test_getMinInArea1() {
                      9, 10, 11, 12},
             3, 4);
     assert(getMinInArea(m) == 2);
+    freeMemMatrix(m);
 }
 
 void test_getMinInArea2() {
@@ -283,6 +284,7 @@ void test_getMinInArea2() {
                      9, 100, 11, 12},
             3, 4);
     assert(getMinInArea(m) == 1);
+    freeMemMatrix(m);
 }
 
 void test_sortByDistances1() {
@@ -298,6 +300,8 @@ void test_sortByDistances1() {
             3, 3);
     sortByDistances(m);
     assert(areTwoMatricesEqual(&m, &mResult));
+    freeMemMatrix(m);
+    freeMemMatrix(mResult);
 }
 
 void test_sortByDistances2() {
@@ -313,6 +317,8 @@ void test_sortByDistances2() {
             3, 4);
     sortByDistances(m);
     assert(areTwoMatricesEqual(&m, &mResult));
+    freeMemMatrix(m);
+    freeMemMatrix(mResult);
 }
 
 void test_countEqClassesByRowSum1(){
@@ -323,6 +329,7 @@ void test_countEqClassesByRowSum1(){
                      10, 11, 12},
             4, 3);
     assert(countEqClassesByRowSum(m) == 4);
+    freeMemMatrix(m);
 }
 
 void test_countEqClassesByRowSum2(){
@@ -333,6 +340,7 @@ void test_countEqClassesByRowSum2(){
                      10, 11, 12},
             4, 3);
     assert(countEqClassesByRowSum(m) == 2);
+    freeMemMatrix(m);
 }
 
 void test_getNSpecialElement() {
@@ -343,6 +351,7 @@ void test_getNSpecialElement() {
                      20, 11, 1},
             4, 3);
     assert(getNSpecialElement(m) == 2);
+    freeMemMatrix(m);
 }
 
 void test_swapPenultimateRow1() {
@@ -358,6 +367,8 @@ void test_swapPenultimateRow1() {
             3, 3);
     swapPenultimateRow(m);
     assert(areTwoMatricesEqual(&m, &mResult));
+    freeMemMatrix(m);
+    freeMemMatrix(mResult);
 }
 
 void test_swapPenultimateRow2() {
@@ -373,6 +384,8 @@ void test_swapPenultimateRow2() {
             3, 3);
     swapPenultimateRow(m);
     assert(areTwoMatricesEqual(&m, &mResult));
+    freeMemMatrix(m);
+    freeMemMatrix(mResult);
 }
 
 void test_countNonDescendingRowsMatrices() {
@@ -393,6 +406,7 @@ void test_countNonDescendingRowsMatrices() {
                      7, 8, 9},
             3, 3);
     assert(countNonDescendingRowsMatrices(ms, 3) == 2);
+    freeArrayMatrices(ms, 3);
 }
 
 void test_printMatrixWithMaxZeroRows() {
@@ -418,6 +432,28 @@ void test_printMatrixWithMaxZeroRows() {
                      0, 0, 0},
             3, 3);
     printMatrixWithMaxZeroRows(ms, 4);
+    freeArrayMatrices(ms, 4);
+}
+
+void test_printMinNormMatrix() {
+    matrix ms[3];
+    ms[0] = createMatrixFromArray(
+            (int[]) {1, 2, 3,
+                     4, 5, 6,
+                     7, 8, 9},
+            3, 3);
+    ms[1] = createMatrixFromArray(
+            (int[]) {1, 2, 3,
+                     4, 10, 6,
+                     7, 8, 9},
+            3, 3);
+    ms[2] = createMatrixFromArray(
+            (int[]) {1, 2, 3,
+                     4, 100, 6,
+                     7, 8, 9},
+            3, 3);
+    printMinNormMatrix(ms, 3);
+    freeArrayMatrices(ms, 3);
 }
 
 void test() {
@@ -448,6 +484,7 @@ void test() {
     test_swapPenultimateRow2();
     test_countNonDescendingRowsMatrices();
     //test_printMatrixWithMaxZeroRows();
+    //test_printMinNormMatrix();
 
 }
 

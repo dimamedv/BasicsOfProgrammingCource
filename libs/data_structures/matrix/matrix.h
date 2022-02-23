@@ -112,4 +112,8 @@ int countZeroRows(matrix m);
 
 void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix);
 
+void printMinNormMatrix(matrix *ms, int nMatrix);
+
+void freeArrayMatrices(matrix *ms, int nMatrices);
+
 #endif //BASICSOFPROGRAMMINGCOURSE_MATRIX_H
