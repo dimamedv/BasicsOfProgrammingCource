@@ -304,6 +304,16 @@ void test_countEqClassesByRowSum2(){
     assert(countEqClassesByRowSum(m) == 2);
 }
 
+void test_getNSpecialElement() {
+    matrix m = createMatrixFromArray(
+            (int[]) {1, 2, 21,
+                     5, 5, 6,
+                     7, 8, 9,
+                     20, 11, 1},
+            4, 3);
+    assert(getNSpecialElement(m) == 2);
+}
+
 void test() {
     test_swapRowsWithMinAndMaxElementsOfSquareMatrix_differentRows();
     test_swapRowsWithMinAndMaxElementsOfSquareMatrix_sameRow();
@@ -327,6 +337,7 @@ void test() {
     test_sortByDistances2();
     test_countEqClassesByRowSum1();
     test_countEqClassesByRowSum2();
+    test_getNSpecialElement();
 }
 
 int main() {

@@ -96,5 +96,6 @@ void sortByDistances(matrix m);
 
 int countEqClassesByRowSum(matrix m);
 
+int getNSpecialElement(matrix m);
 
 #endif //BASICSOFPROGRAMMINGCOURSE_MATRIX_H

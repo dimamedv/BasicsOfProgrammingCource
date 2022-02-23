@@ -446,3 +446,18 @@ int countEqClassesByRowSum(matrix m) {
     }
     return sizeCV;
 }
+
+int getNSpecialElement(matrix m) {
+    int countSpecialElements = 0;
+    for (int columnIndex = 0; columnIndex < m.nCols; columnIndex++) {
+        int column[m.nRows];
+        getColumnOfMatrix(column, &m, columnIndex);
+        long long sumOfColumn = 0;
+        for (int i = 0; i < m.nRows; i++)
+            sumOfColumn += column[i];
+        for (int i = 0; i < m.nRows; i++)
+            if (column[i] > sumOfColumn - column[i])
+                countSpecialElements++;
+    }
+    return countSpecialElements;
+}
