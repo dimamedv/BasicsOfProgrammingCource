@@ -461,3 +461,28 @@ int getNSpecialElement(matrix m) {
     }
     return countSpecialElements;
 }
+
+position getMinValuePosByColumn(matrix *m) {
+    int min = m->values[0][0];
+    position pos = {0, 0};
+    for (int column = 0; column < m->nCols; column++)
+        for (int row = 0; row < m->nRows; row++)
+            if (m->values[row][column] < min) {
+                min = m->values[row][column];
+                pos.rowIndex = row;
+                pos.colIndex = column;
+            }
+    return pos;
+}
+
+void setRow(matrix m, int *a, int rowIndex) {
+    for (int colIndex = 0; colIndex < m.nCols; colIndex++)
+        m.values[rowIndex][colIndex] = a[colIndex];
+}
+
+void swapPenultimateRow(matrix m) {
+    position minPos = getMinValuePosByColumn(&m);
+    int column[m.nRows];
+    getColumnOfMatrix(column, &m, minPos.colIndex);
+    setRow(m, column, m.nRows - 2);
+}

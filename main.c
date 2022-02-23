@@ -314,6 +314,36 @@ void test_getNSpecialElement() {
     assert(getNSpecialElement(m) == 2);
 }
 
+void test_swapPenultimateRow1() {
+    matrix m = createMatrixFromArray(
+            (int[]) {1, 2, 3,
+                     4, 5, 6,
+                     7, 8, 9},
+            3, 3);
+    matrix mResult = createMatrixFromArray(
+            (int[]) {1, 2, 3,
+                     1, 4, 7,
+                     7, 8, 9},
+            3, 3);
+    swapPenultimateRow(m);
+    assert(areTwoMatricesEqual(&m, &mResult));
+}
+
+void test_swapPenultimateRow2() {
+    matrix m = createMatrixFromArray(
+            (int[]) {1, 2, 3,
+                     4, 5, 6,
+                     7, 1, 9},
+            3, 3);
+    matrix mResult = createMatrixFromArray(
+            (int[]) {1, 2, 3,
+                     1, 4, 7,
+                     7, 1, 9},
+            3, 3);
+    swapPenultimateRow(m);
+    assert(areTwoMatricesEqual(&m, &mResult));
+}
+
 void test() {
     test_swapRowsWithMinAndMaxElementsOfSquareMatrix_differentRows();
     test_swapRowsWithMinAndMaxElementsOfSquareMatrix_sameRow();
@@ -338,6 +368,8 @@ void test() {
     test_countEqClassesByRowSum1();
     test_countEqClassesByRowSum2();
     test_getNSpecialElement();
+    test_swapPenultimateRow1();
+    test_swapPenultimateRow2();
 }
 
 int main() {

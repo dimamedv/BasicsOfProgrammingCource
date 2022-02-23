@@ -98,4 +98,6 @@ int countEqClassesByRowSum(matrix m);
 
 int getNSpecialElement(matrix m);
 
+void swapPenultimateRow(matrix m);
+
 #endif //BASICSOFPROGRAMMINGCOURSE_MATRIX_H
