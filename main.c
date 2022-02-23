@@ -284,6 +284,26 @@ void test_sortByDistances2() {
     assert(areTwoMatricesEqual(&m, &mResult));
 }
 
+void test_countEqClassesByRowSum1(){
+    matrix m = createMatrixFromArray(
+            (int[]) {1, 2, 3,
+                     4, 5, 6,
+                     7, 8, 9,
+                     10, 11, 12},
+            4, 3);
+    assert(countEqClassesByRowSum(m) == 4);
+}
+
+void test_countEqClassesByRowSum2(){
+    matrix m = createMatrixFromArray(
+            (int[]) {1, 2, 21,
+                     13, 5, 6,
+                     7, 8, 9,
+                     10, 11, 12},
+            4, 3);
+    assert(countEqClassesByRowSum(m) == 2);
+}
+
 void test() {
     test_swapRowsWithMinAndMaxElementsOfSquareMatrix_differentRows();
     test_swapRowsWithMinAndMaxElementsOfSquareMatrix_sameRow();
@@ -305,6 +325,8 @@ void test() {
     test_getMinInArea2();
     test_sortByDistances1();
     test_sortByDistances2();
+    test_countEqClassesByRowSum1();
+    test_countEqClassesByRowSum2();
 }
 
 int main() {

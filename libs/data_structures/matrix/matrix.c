@@ -434,3 +434,15 @@ void sortByDistances(matrix m) {
     insertionSortRowsMatrixByRowCriteriaF(&m, &getDistance);
     revertRowsOfMatrix(&m);
 }
+
+int countEqClassesByRowSum(matrix m) {
+    int classValues[m.nRows];
+    int sizeCV = 0;
+    for (int rowIndex = 0; rowIndex < m.nRows; rowIndex++) {
+        int sumOfRow = getSum(m.values[rowIndex], m.nCols);
+        int position = linearSearch_(classValues, sizeCV, sumOfRow);
+        if (position == sizeCV)
+            append_(classValues, &sizeCV, sumOfRow);
+    }
+    return sizeCV;
+}

@@ -27,7 +27,7 @@ size_t binarySearchMoreOrEqual_(const int *a, const size_t n, int x);
 void insert_(int *a, size_t *n, size_t pos, int value);
 
 // добавление элемента value в конец массива a размера n
-void append_(int *a, size_t *n, int value);
+void append_(int *a, int *n, int value);
 
 // удаление из массива a размера n элемента на позиции pos
 // с сохранением порядка оставшихся элементов

@@ -94,5 +94,7 @@ int getMinInArea(matrix m);
 
 void sortByDistances(matrix m);
 
+int countEqClassesByRowSum(matrix m);
+
 
 #endif //BASICSOFPROGRAMMINGCOURSE_MATRIX_H
