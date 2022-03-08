@@ -1,4 +1,5 @@
 #include <stddef.h>
+#include <memory.h>
 #include "ctype.h"
 #include "string_.h"
 
@@ -57,3 +58,32 @@ int strcmp(const char *lhs, const char *rhs) {
 
     return 0;
 }
+
+char *copy(const char *beginSource, const char *endSource,
+           char *beginDestination) {
+    memcpy(beginDestination, beginSource, endSource - beginSource);
+
+    return beginDestination + (endSource - beginSource);
+}
+
+char *copyIf(char *beginSource, const char *endSource,
+             char *beginDestination, int *f(int)) {
+    while (beginSource != endSource) {
+        if (f(*beginSource))
+            *(beginDestination++) = *beginSource;
+
+        beginSource++;
+    }
+    return beginDestination;
+}
+
+char *copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDestination, int (*f)(int)) {
+    while (rbeginSource != rendSource) {
+        if (f(*rbeginSource))
+            *beginDestination++ = *rbeginSource;
+
+        rbeginSource--;
+    }
+    return beginDestination;
+}
+
