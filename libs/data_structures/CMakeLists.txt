@@ -5,4 +5,4 @@ target_link_libraries(data_structures algorithms)
 
 add_library(str string/string_.h string/string_.c
 
-        )
+        string/tasks/removeNonLetters.h)
